@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express();
+var router = require('./router');
 
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/',router);
 
 const PORT = 3000;
 app.listen(PORT,'127.0.0.1',() => {
