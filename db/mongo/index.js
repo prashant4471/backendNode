@@ -9,9 +9,7 @@ const MONGO_DB = 'anything_anywhere';
 const connectDB = async () => {
     try{
         var dbURL= `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}`;
-        const mongoDB = await mongoose.connect(dbURL,{
-            useNewUrlParser: true,
-        });
+        const mongoDB = await mongoose.connect(dbURL);
         console.log("MongoDB successfully connected !!");
     } catch (err) {
         console.log(err);

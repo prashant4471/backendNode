@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-var router = require('./router');
+var router = require('./routers');
 
 const bodyParser = require('body-parser');
 const connectDB = require('./db/mongo');
