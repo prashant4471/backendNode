@@ -1,10 +1,17 @@
-const { getAllTests } = require('../../dal/testDAL');
+var express = require('express');
+var TestController = require('../../controllers/test');
 
-var router = require('express').Router();
+class TestRouter {
+    constructor(){
+        this.testController = new TestController();
+    }
 
-router.get('/getDummy', async function(req,res){
-    const data = await getAllTests();
-    return res.status(200).send(data);
-});
+    getRouter = () => {
+        const router = express.Router();
+        router.get("/", this.testController.getAllTests);
+        router.post("/", this.testController.createTest);
+        return router;
+    }
+}
 
-module.exports = router;
+module.exports = TestRouter;
