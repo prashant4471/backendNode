@@ -6,7 +6,7 @@ const MONGO_HOSTNAME = 'localhost';
 const MONGO_PORT = '27017';
 const MONGO_DB = 'anything_anywhere';
 
-const connectDB = async () => {
+const connectMongoDB = async () => {
     try{
         var dbURL= `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}`;
         const mongoDB = await mongoose.connect(dbURL);
@@ -16,4 +16,4 @@ const connectDB = async () => {
     }
 }
 
-module.exports = connectDB;
+module.exports = connectMongoDB;
